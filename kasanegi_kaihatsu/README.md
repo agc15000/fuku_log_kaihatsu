@@ -44,6 +44,8 @@
 
 ■ 機能候補
 現状作ろうと思っている機能、案段階の機能をしっかりと固まっていなくても構わないのでMVPリリース時に作っていたいもの、本リリースまでに作っていたいものをそれぞれ分けて教えてください。
+### 画面遷移図
+Figma：https://www.figma.com/file/5KVLOw2MFrDRsZ8rCeh4ki/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?type=design&node-id=0%3A1&mode=design&t=82533pkcsE66yqzt-1
 
 # MVPリリース時
 - **基本機能**
