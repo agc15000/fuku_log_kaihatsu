@@ -1,4 +1,11 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
-import * as bootstrap from "bootstrap"
+// Import Turbo from @hotwired/turbo-rails
+import { Turbo } from "@hotwired/turbo-rails"
+Turbo.session.drive = true
+
+// Import Stimulus controllers
+import { Application } from "@hotwired/stimulus"
+import { definitionsFromContext } from "@hotwired/stimulus/webpack-helpers"
+
+const application = Application.start()
+const context = require.context("controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
