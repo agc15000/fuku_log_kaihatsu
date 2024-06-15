@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :cloths, dependent: :destroy
   has_many :episodes, dependent: :destroy
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name created_at updated_at]
+  end
 end

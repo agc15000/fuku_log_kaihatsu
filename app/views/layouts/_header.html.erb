@@ -1,6 +1,12 @@
 <header>
   <% if user_signed_in? %>
+    <%= search_form_for @q, url: search_userlists_path, method: :get do |f| %>
+      <%= f.search_field :name_cont, placeholder: "Search users" %>
+      <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
     <%= link_to 'アイテム一覧', cloths_path %> |
+    <%= link_to 'New Cloth', new_cloth_path %> |
+    <%= link_to 'edit profile', edit_user_registration_path %> |
     <%= link_to 'Sign Out', destroy_user_session_path %>
   <% else %>
     <%= link_to 'Login', new_user_session_path %>
