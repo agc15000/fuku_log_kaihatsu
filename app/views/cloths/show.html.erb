@@ -3,6 +3,7 @@
 <p>
   <%= @cloth.description %>
 </p>
+<p><%= render 'cloths/tag_list', tag_list: @cloth.tag_list %></p>
 
 <%= link_to 'Edit', edit_cloth_path(@cloth) %> |
 <%= link_to 'Back', cloths_path %> |
