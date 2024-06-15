@@ -6,4 +6,6 @@
 <p><%= render 'cloths/tag_list', tag_list: @cloth.tag_list %></p>
 
 <%= link_to 'Edit', edit_cloth_path(@cloth) %> |
-<%= link_to 'Back', cloths_path %> |
+<%= link_to '記録を見る', cloth_episodes_path(@cloth) %> |
+<%= link_to '記録を書く', new_cloth_episode_path(@cloth) %> |
+<%= link_to 'Back', cloths_path %>

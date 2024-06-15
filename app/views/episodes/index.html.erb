@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Episodes</h1>
+<%= link_to 'マイクローゼット', cloths_path %>
+<%= link_to "アイテム記録作成", new_cloth_episode_path(@cloth) %>
+
+<div id="episodes">
+  <% @episodes.each do |episode| %>
+    <%= render episode %>
+    <p>
+      <%= link_to "Show this episode", cloth_episode_path(@cloth,episode) %>
+      <%= button_to "Delete this episode", cloth_episode_path(@cloth, episode), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% end %>
+</div>
+

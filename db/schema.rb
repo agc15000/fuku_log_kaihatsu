@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_122947) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_15_135821) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_122947) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cloths_on_user_id"
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cloth_id", null: false
+    t.string "title"
+    t.text "content"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cloth_id"], name: "index_episodes_on_cloth_id"
+    t.index ["user_id"], name: "index_episodes_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -71,5 +83,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_122947) do
   end
 
   add_foreign_key "cloths", "users"
+  add_foreign_key "episodes", "cloths"
+  add_foreign_key "episodes", "users"
   add_foreign_key "taggings", "tags"
 end
