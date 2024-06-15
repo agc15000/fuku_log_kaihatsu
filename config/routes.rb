@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :cloths do
+    collection do
+      get 'search'
+    end
     resources :episodes
   end
 

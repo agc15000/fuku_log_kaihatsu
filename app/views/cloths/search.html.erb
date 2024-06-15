@@ -1,0 +1,15 @@
+<h1>Cloth#search</h1>
+
+<% if @cloths.present? %>
+  <h2>Search Results:</h2>
+  <ul>
+    <% @cloths.each do |cloth| %>
+      <li>
+        <%= link_to cloth.name, cloth_path(cloth) %>
+        <%= cloth.description %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No cloth found</p>
+<% end %>

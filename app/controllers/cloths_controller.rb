@@ -39,6 +39,10 @@ class ClothsController < ApplicationController
     redirect_to cloths_url, notice: 'Cloth was successfully destroyed.'
   end
 
+  def search
+    @cloths = @cloth_search.result(distinct: true)
+  end
+
   private
 
   def set_cloth

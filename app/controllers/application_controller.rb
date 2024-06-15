@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def set_ransack_search
     @q = User.ransack(params[:q])
+    @cloth_search = Cloth.ransack(params[:cloth_search])
   end
 
   def configure_permitted_parameters
