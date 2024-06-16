@@ -19,5 +19,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "cloths#index"
+  authenticated :user do
+    root to: "cloths#index", as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: "welcome#top", as: :unauthenticated_root
+  end
 end
