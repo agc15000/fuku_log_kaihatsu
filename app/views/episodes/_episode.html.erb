@@ -13,4 +13,12 @@
     <strong>Content:</strong>
     <%= episode.content %>
   </p>
+
+  <div>
+    <% if episode.image.present? %>
+      <div>
+        <%= image_tag(episode.image_url, size: "100x100") %>
+      </div>
+    <% end %>
+  </div>
 </div>

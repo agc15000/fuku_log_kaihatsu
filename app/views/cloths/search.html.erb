@@ -8,6 +8,9 @@
         <%= link_to cloth.name, cloth_path(cloth) %>
         <%= cloth.description %>
       </li>
+      <% if cloth.image_url.present? %>
+        <p><%= image_tag(cloth.image_url, size: "100x100") %></p>
+      <% end %>
     <% end %>
   </ul>
 <% else %>

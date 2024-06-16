@@ -21,6 +21,14 @@
     <%= form.text_area :content %>
   </div>
 
+  <%= form.label :image, style: "display: block" %>
+    <% if @episode.image.present? %>
+      <div>
+        <%= image_tag(@episode.image_url, size: "100x100") %>
+      </div>
+    <% end %>
+    <%= form.file_field :image %>
+
   <div>
     <%= form.submit %>
   </div>

@@ -6,6 +6,9 @@
     <% @cloths.each do |cloth| %>
       <p> cloth_name <%= cloth.name %></p>
       <p> description <%= cloth.description %></p>
+      <% if cloth.image_url.present? %>
+        <p><%= image_tag(cloth.image_url, size: "100x100") %></p>
+      <% end %>
       <p><%= render 'cloths/tag_list', tag_list: cloth.tag_list %></p>
       <p><%= link_to 'Show', cloth_path(cloth) %></p>
       <p><%= link_to 'Edit', edit_cloth_path(cloth) %></p>
