@@ -1,27 +1,30 @@
-<%= form_with(model: [@cloth,@episode], local: true) do |form| %>
-  <% if episode.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(episode.errors.count, "error") %> prohibited this episode from being saved:</h2>
-
+<%= form_with(model: [@cloth, @episode], local: true, html: { class: 'container mt-5' }) do |form| %>
+  <% if @episode.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@episode.errors.count, "error") %> prohibited this episode from being saved:</h4>
       <ul>
-        <% episode.errors.each do |error| %>
+        <% @episode.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= @cloth.name %>
   </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+  <div class="form-group">
+    <%= form.label :title, "タイトル" %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label :content, "内容" %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit '記録する', class: 'btn btn-primary' %>
   </div>
 <% end %>
