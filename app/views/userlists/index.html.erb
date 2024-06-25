@@ -8,6 +8,7 @@
     <% @users.each do |user| %>
       <li>
         <%= link_to user.name, "#" %>
+        <%= render 'follow_button', user: user %>
       </li>
     <% end %>
   </ul>

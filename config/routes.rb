@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :relationships, only: [:create, :destroy]
   resources :userlists, only: [:index, :show] do
     collection do
       match 'search' => 'userlists#index', via: [:get, :post], as: :search
+    end
+    member do
+      post 'follow', to: 'relationships#create'
+      delete 'unfollow', to: 'relationships#destroy'
     end
   end
 

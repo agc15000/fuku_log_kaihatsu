@@ -1,0 +1,7 @@
+<div id="follow_button_<%= user.id %>">
+  <% if current_user.following?(user) %>
+    <%= button_to 'Unfollow', unfollow_userlist_path(user), method: :delete, data: { turbo_frame: "_top" }, class: "btn btn-danger" %>
+  <% else %>
+    <%= button_to 'Follow', follow_userlist_path(user), method: :post, data: { turbo_frame: "_top" }, class: "btn btn-primary" %>
+  <% end %>
+</div>
