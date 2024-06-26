@@ -12,6 +12,7 @@
 
     <%= link_to 'アイテム一覧', cloths_path %> |
     <%= link_to 'New Cloth', new_cloth_path %> |
+    <%= link_to 'Following', followlist_userlist_path(current_user.id) %> |
     <%= link_to 'edit profile', edit_user_registration_path %> |
     <%= link_to 'Sign Out', destroy_user_session_path %>
   <% else %>

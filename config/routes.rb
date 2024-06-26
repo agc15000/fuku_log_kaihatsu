@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       post 'follow', to: 'relationships#create'
       delete 'unfollow', to: 'relationships#destroy'
+      get 'followlist'
     end
   end
 

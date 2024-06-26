@@ -1,0 +1,17 @@
+<h1>Followlist#index</h1>
+
+<% if @users.present? %>
+  <h2>Search Results:</h2>
+<% end %>
+<% if @users.any? %>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= link_to user.name, "#" %>
+        <%= render 'follow_button', user: user %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No users found</p>
+<% end %>
