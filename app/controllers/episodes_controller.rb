@@ -1,6 +1,6 @@
 class EpisodesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cloth
+  before_action :set_cloth, except: [ :timeline ]
   before_action :set_episode, only: %i[ show edit update destroy ]
 
   def index
@@ -46,6 +46,11 @@ class EpisodesController < ApplicationController
       format.html { redirect_to cloth_episodes_path(@cloth), notice: "Episode was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def timeline
+    episodes = current_user.following.map(&:episodes).flatten
+    @sorted_episodes = episodes.sort_by(&:created_at).reverse
   end
 
   private

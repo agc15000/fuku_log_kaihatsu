@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Episodes</h1>
+<%= link_to 'マイクローゼット', cloths_path %>
+
+<div id="timeline_episode">
+  <% @sorted_episodes.each do |timeline_episode| %>
+    <%= render partial: 'timeline_episode', locals: { timeline_episode: timeline_episode } %>
+  <% end %>
+</div>
+
