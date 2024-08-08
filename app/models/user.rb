@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :entries
+  has_many :rooms, through: :entries
+  has_many :messages
 
   def follow(user)
     active_relationships.find_or_create_by(followed_id: user.id)

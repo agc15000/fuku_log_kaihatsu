@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :rooms, only: [:index, :create, :show] do
+    resources :messages, only: [:create]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :relationships, only: [:create, :destroy]
   resources :userlists, only: [:index, :show] do
