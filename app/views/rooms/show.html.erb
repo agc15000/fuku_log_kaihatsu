@@ -1,0 +1,13 @@
+<%= turbo_stream_from "messages" %>
+<h1>Chat Room</h1>
+
+<div id="messages">
+  <% if @room && @messages.any? %>
+    <%= render @messages %>
+  <% end %>
+</div>
+
+<%= form_with model: [@room, Message.new], data: { turbo: true }, local: false do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit "Send" %>
+<% end %>

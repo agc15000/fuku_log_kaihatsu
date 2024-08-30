@@ -8,7 +8,9 @@
     <% @users.each do |user| %>
       <li>
         <%= link_to user.name, "#" %>
-        <%= render 'follow_button', user: user %>
+          <%= turbo_frame_tag "follow_button_#{user.id}" do %>
+            <%= render 'follow_button', user: user %>
+          <% end %>
       </li>
     <% end %>
   </ul>

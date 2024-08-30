@@ -1,2 +1,4 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server
+js: yarn build --watch
 css: yarn watch:css
+redis: redis-server /opt/homebrew/Cellar/redis/7.2.5/.bottle/etc/redis.conf

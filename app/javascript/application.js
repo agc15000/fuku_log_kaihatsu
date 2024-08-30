@@ -5,5 +5,5 @@ import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 window.Turbo = Turbo
 
 const application = Application.start()
-const context = require.context("controllers", true, /\.js$/)
+const context = require.context("./controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
